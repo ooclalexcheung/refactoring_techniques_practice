@@ -4,6 +4,7 @@ public class PriceCalculator {
     private final double maxmiumShippingCost = 100.0;
     private final double shippingCostRate = 0.1;
     private final int maximunDiscount = 500;
+    private final double discountRate = 0.05;
     public double getPrice(int quantity, int itemPrice) {
 
         // Price consists of: base price - discount + shipping cost
@@ -17,7 +18,7 @@ public class PriceCalculator {
     }
 
     private double getDiscount(int quantity, int itemPrice) {
-        return Math.max(0, quantity - maximunDiscount) * itemPrice * 0.05;
+        return Math.max(0, quantity - maximunDiscount) * itemPrice * discountRate;
     }
 
     private int getBasePrice(int quantity, int itemPrice) {
