@@ -17,6 +17,10 @@ public class OwingPrinter {
         outstanding = getOwings(elements, outstanding);
 
         // print details
+        printDetails(name, outstanding);
+    }
+
+    private void printDetails(String name, double outstanding) {
         System.out.println("name: " + name);
         System.out.println("amount: " + outstanding);
     }
