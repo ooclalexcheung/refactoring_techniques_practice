@@ -14,14 +14,19 @@ public class OwingPrinter {
         printBanner();
 
         // print owings
-        while (elements.hasNext()) {
-            Order each = (Order) elements.next();
-            outstanding += each.getAmount();
-        }
+        outstanding = getOwings(elements, outstanding);
 
         // print details
         System.out.println("name: " + name);
         System.out.println("amount: " + outstanding);
+    }
+
+    private double getOwings(Iterator<Order> elements, double outstanding) {
+        while (elements.hasNext()) {
+            Order each = (Order) elements.next();
+            outstanding += each.getAmount();
+        }
+        return outstanding;
     }
 
     private void printBanner() {
